@@ -60,7 +60,7 @@ class UsersLocationAdapter(context:Context, private val valueList:List<LocationD
         holder.userLatitudeInfo.text = latitudeText
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context,position.toString(),Toast.LENGTH_SHORT).show()
+
             val intent = Intent(holder.itemView.context, MapActivity::class.java)
             intent.putExtra("latitude", data.latitude)
             intent.putExtra("longitude", data.longitude)
