@@ -91,10 +91,7 @@ class MapActivity:AppCompatActivity(),OnMapReadyCallback {
 
     private val playbackRunnable = object : Runnable {
         override fun run() {
-            if(currentLocationIndex == 0){
-                stopPlayback()
-            }
-            else if (currentLocationIndex < locationHistory.size) {
+            if (currentLocationIndex < locationHistory.size) {
                 val location = locationHistory[currentLocationIndex]
                 val latLng = LatLng(location.latitude!!, location.longitude!!)
                 mGoogleMap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
@@ -105,7 +102,7 @@ class MapActivity:AppCompatActivity(),OnMapReadyCallback {
                 )
                 mGoogleMap?.setInfoWindowAdapter(infoWindowAdapter)
 
-                currentLocationIndex--
+                currentLocationIndex++
                 playbackHandler.postDelayed(this, playbackSpeed)
             } else {
                 stopPlayback()
